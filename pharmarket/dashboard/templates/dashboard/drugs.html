@@ -1,0 +1,110 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .container2 {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  background: #419be0;
+}
+
+.slick-slide {
+  text-align: center;
+  color: #419be0;
+  background: white;
+}
+</style>
+    <div class="container col">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card mb-4 bg-light" style="height: 250px;">
+                    <div class="card-header" style="font-weight: normal;font-size: x-large;">Instructions</div>
+                    <div class="card-body">
+                      <p class="card-text">1. Instruction</p>
+                      <p class="card-text">2. Instruction</p>
+                      <p class="card-text">3. Instruction</p>
+                      <p class="card-text">4. Instruction</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card mb-4 bg-light" style="height: 250px;">
+                    <div class="card-header" style="font-weight: normal;font-size: x-large;">Upload Drug Details</div>
+                    <div class="center-block" style="margin-top: 10%;">
+                        <div class="card-body">
+                            <a class="btn btn-block btn-primary" href="{% url 'add_drugs' %}" style="align-content: center; color: ivory;background-color:  #5f788a;">Upload Drug</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div >
+        <!--Carrousal-->
+        <style>
+            .container2{
+                margin: 0 auto;
+                padding: 5px;
+                width: 80%;
+                color: #333;
+                background: #5f788a;
+            }
+
+            .slick-slide {
+                text-align: center;
+                background: white;
+            }
+
+            .slick-prev:before {
+                color: black;
+            }
+            .slick-next:before {
+                color: black;
+            }
+        </style>
+        <div class="card mb-4 bg-light" style="height: 400px;">
+            <div class="card-header" style="font-weight: normal;font-size: x-large;">Recent Coined Drugs</div><br>
+            <div class='container2' style="padding:5px;">
+                <div class='single-item'>
+                {% for drug in drugs %}
+                  <div class="col-md-12" >
+                    <div class="card" style="width: 18rem;">
+
+                        <img class="card-img-top" src="{{MEDIA_URL}}{{drug.drug_image_path}}" height="130" width="200" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{drug.drug_name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{drug.drug_category}}</h6>
+                            <p class="card-text">{{drug.posology}}</p>
+                        </div>
+                      </div>
+                      
+                  </div>
+                  {% endfor %}
+        </div>
+        
+          </div>
+        </div>
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+    
+    
+    <script type="text/javascript">
+    
+        $(".single-item").slick({
+            dots: false,
+            infinite: false,
+            slidesToShow:3,
+            slidesToScroll: 3,
+            cssEase: "ease",
+            autoplay: true,
+            autoplaySpeed: 3000,
+        });
+    
+    
+    </script>
+    
+{% endblock content %}

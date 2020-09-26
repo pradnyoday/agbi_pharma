@@ -1,0 +1,12 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+    <div class="container">
+        <h2>You have logged out!</h2><br>
+    </div>
+        
+	<div  class="container border-top pt-8">
+		<small class="text-muted"><br>
+			<a href="{% url 'login' %}" style="font-size: x-large;text-decoration: none;">Log In Again!</a><br>
+		</small>
+	</div>
+{% endblock content %}

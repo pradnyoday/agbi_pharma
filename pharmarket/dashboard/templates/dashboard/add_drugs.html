@@ -1,0 +1,21 @@
+{% extends 'dashboard/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .asteriskField {
+        display: none;
+    }
+</style>
+<div class="content-section" style="background-color:ffffff;justify-content: center;margin-left: 25%;margin-top: 0px;width: 50%;">
+    <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add Drug Record</legend>
+            {{form|crispy}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" style="width:100%;" type="submit">Add</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
