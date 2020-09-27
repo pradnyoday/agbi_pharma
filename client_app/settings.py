@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'client_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_test',
+        'NAME': 'agbi_pharma',
         'USER': 'root',
         'PASSWORD': '',
         'PORT': '3306',
