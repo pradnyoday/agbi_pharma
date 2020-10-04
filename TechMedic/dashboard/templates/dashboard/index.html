@@ -1,0 +1,71 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+        <div class="container col">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4 shadow-sm">
+                        <img  src="{{MEDIA_URL}}/images/hospital.jpg" alt="Hospital image cap">
+                        <div class="card-body">
+                            <p class="card-text" style="font-weight: bolder;color:  #293644;font-family: Trebuchet MS;text-justify: inter-word;text-align: justify;">The website will allow hospitals to digitize their medical records and generate analytics from them. It will also help doctors in better assessing the patient's diagnosis. The website will also help hospitals in finding candidates suitable for a new launched drug.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card mb-4 shadow-sm">
+                        <img  src="{{MEDIA_URL}}/images/Pharma.jpg" alt="Pharma image cap">
+                        <div class="card-body">
+                            <p class="card-text" style="font-weight: bolder;color:  #293644;font-family: Trebuchet MS;text-justify: inter-word;text-align: justify;">The website will allow pharmaceutical companies to upload their newly created drugs on the portal. Further, if the drugs are found suitable by a hospital, they can generate candidate patients for the particular drug. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" style="align-content: center;justify-content: center;">
+                <div class="card bg-light mb-3" style="max-width: 12rem;margin: 5px;">
+                    <div class="card-header" style="font-weight:normal;font-size: x-large;">Digitization</div>
+                    <div class="card-body">
+                      <p class="card-text" style="font-weight: bolder;color:  #293644;font-family: Trebuchet MS;">Upload your scanned PDF medical records and we will digitize them for you!
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card bg-light mb-3" style="max-width: 12rem;margin: 5px;">
+                    <div class="card-header" style="font-weight: normal;font-size: x-large;">Tagging</div>
+                    <div class="card-body">
+                      <p class="card-text" style="font-weight: bolder;color:  #293644;font-family: Trebuchet MS;">Based on past medical diagnosis records, get suitable drug suggestions for a particular diagnosis
+                    </p>
+                    </div>
+                </div>
+            
+                <div class="card bg-light mb-3" style="max-width: 12rem;margin: 5px;">
+                    <div class="card-header" style="font-weight: normal;font-size: x-large;">Upload Drug</div>
+                    <div class="card-body">
+                      <p class="card-text" style="font-weight: bolder;color:  #293644;font-family: Trebuchet MS;">Marketplace for pharma industries to upload their newly created drugs
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card bg-light mb-3" style="max-width: 12rem;margin: 5px;">
+                    <div class="card-header" style="font-weight: normal;font-size: x-large;">Identification</div>
+                    <div class="card-body">
+                      <p class="card-text" style="font-weight: bolder;color:  #293644;font-family: Trebuchet MS;">Identify potential candidate patients from hospital database for a newly uploaded drug by pharma industries
+                    </p>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3" style="max-width: 12rem;margin: 5px;">
+                    <div class="card-header" style="font-weight: normal;font-size: x-large;">Analytics</div>
+                    <div class="card-body">
+                      <p class="card-text" style="font-weight: bolder;color:  #293644;font-family: Trebuchet MS;">Visualize insights from past data for better diagnosis and providing drugs prescription
+
+                    </p>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+{% endblock content %}

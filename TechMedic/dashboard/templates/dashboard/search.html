@@ -1,0 +1,77 @@
+{% extends 'dashboard/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>
+        .tableFixHead          { overflow-y: auto; max-height: 500px;}
+        .tableFixHead thead th { position: sticky; top: 0;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+        table  { border-collapse: collapse; width: 100%; }
+        th, td { padding: 2px 5px; text-align: left;}
+        th     { background:#5f788a;color: white;}
+    </style>
+    
+    <div class="content-section" style="background-color:ffffff;justify-content: center;margin-left: 10%;margin-top: 0px;width: 80%;">
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <h6>NOTE: Sample searches : </h6>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;By Patient Name - (mayank agarwal,priya roy)<br> &nbsp;&nbsp;&nbsp;&nbsp;By Diagnosis - (skin cancer, throat infection)<br>&nbsp;&nbsp;&nbsp;&nbsp;By Prescribed Drug - (azithromycin)</p>
+            <button class="btn btn-outline-primary" type="submit" style="width: 100%;">Submit</button>
+        </form>
+    </div>
+
+    {% for row in diag %}
+    <p>{{row.diagnosis}}</p>
+    {% endfor %}
+    
+    {% if not norecord %}
+        <div class=" tableFixHead content-section" style="background-color:ffffff;justify-content: center;margin-left: 10%;margin-top: 0px;width: 80%;">
+            {% if ans %}
+                <table class="table-striped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Diagnosis</th>
+                        <th>Prescribed Drug</th>
+                        <th>Comorbidities</th>
+                        <th>Past Medications</th>
+                        <th>Hereditary Diseases</th>
+                    </thead>
+                    {% if not jusname %}    
+                        {% for row in ans %}
+                            <tbody>
+                                <tr>
+                                    <td>{{row.p_id.name}}</td>
+                                    <td>{{row.p_id.age}}</td>
+                                    <td>{{row.p_id.city}}</td>
+                                    <td>{{row.diagnosis}}</td>
+                                    <td>{{row.prescribed_drug}}</td>
+                                    <td>{{row.p_id.comorbid_conditions}}</td>
+                                    <td>{{row.past_medications}}</td>
+                                    <td>{{row.p_id.hereditary_diseases}}</td>
+                                </tr>
+                            </tbody> 
+                        {% endfor %}
+                    {% else %}
+                        {% for row in ans %}
+                            <tbody>
+                                <tr>
+                                    <td>{{row.name}}</td>
+                                    <td>{{row.age}}</td>
+                                    <td>{{row.city}}</td>
+                                    <td>nil</td>
+                                    <td>nil</td>
+                                    <td>{{row.comorbid_conditions}}</td>
+                                    <td>nil</td>
+                                    <td>{{row.hereditary_diseases}}</td>
+                                </tr>
+                            </tbody> 
+                        {% endfor %}
+                    {% endif %}
+                </table>
+            {% else %}
+                <h1>No Record Found</h1>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock content %}

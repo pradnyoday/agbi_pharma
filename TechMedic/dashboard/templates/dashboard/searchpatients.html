@@ -1,0 +1,34 @@
+{% extends 'dashboard/base.html'%}
+{% block content %}
+<style>
+    a.custom-card, a.custom-card:hover {
+        color: inherit;
+    }
+
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+    }
+
+    .card:hover{
+        box-shadow: 0 0 11px #c0e5eb;
+    }
+</style>
+        
+        <div class="container content-section" style="background-color:ffffff;justify-content: center;margin: 0 auto;width: 90%;">
+            <legend class="border-bottom mb-4">Click on the Drug Name</legend>
+            {% for row in data %}
+                    <a href="{% url 'drugDetails' row.drug_id %}" class="custom-card" value="{{row.drug_id}}" style="text-decoration: none;color: #428bca;display: inline-block;margin-left: 28px;margin-bottom:5px;text-align: center;" >
+                        <div class="card" style="width: 18rem;display: inline-block">
+                            <img class="card-img-top" src="{{MEDIA_URL}}{{row.drug_image_path}}" alt="Card image cap" height="130" width="200">
+                            <div class="card-body">
+                              <h6 class="card-title" style="font-size: 20px;">{{row.drug_name}}</h6>
+                              <p class="card-text" style="font-size: 20px;">{{row.user.reg_name}}</p>
+                            </div>
+                        </div>
+                    </a>
+            {% endfor %}
+        </div>        
+    
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        text-align:left;
+        width: 50%;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+        width: 50%;
+    }
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+</style>
+    <div class="center content-section" style="background-color:ffffff;">
+        <legend class="border-bottom mb-4">Todays Drug List:</legend>
+        {% for row in data %}
+            <h3>{{ forloop.counter }}</h3>
+            <table class="border-bottom mb-4">
+                <tr>
+                    <td>Drug Name</td>
+                    <td>{{row.drug_name}}</td>
+                </tr>
+                <tr>
+                    <td>Company</td>
+                    <td>{{row.user.reg_name}}</td>
+                </tr>
+                <tr>
+                    <td>NCT Number</td>
+                    <td>{{row.nct_no}}</td>
+                </tr>
+                <tr>
+                    <td>Age Range</td>
+                    <td>{{row.min_age}} - {{row.max_age}}</td>
+                </tr>
+                <tr>
+                    <td>Other Medications</td>
+                    <td>{{row.other_medications}}</td>
+                </tr>
+                <tr>
+                    <td>Comorbid Conditions</td>
+                    <td>{{row.comorbid_conditions}}</td>
+                </tr>
+                <tr>
+                    <td>Blood Pressure Requirement</td>
+                    <td>{{row.blood_pressure_req}}</td>
+                </tr>
+                <tr>
+                    <td>Posology</td>
+                    <td>{{row.posology}}</td>
+                </tr>
+                <tr>
+                    <td>Efficacy</td>
+                    <td>{{row.efficacy}}</td>
+                </tr>
+                <tr>
+                    <td>Drug Category</td>
+                    <td>{{row.drug_category}}</td>
+                </tr>
+            </table>
+        {% endfor %}
+        <!--<a href="{{MEDIA_URL}}{{name}}" download="Todays Drugs" style="text-decoration: None;">Download Todays Drug Data</a> -->
+        <form action="{% url 'downloadexcel' %}" method="post">
+            {% csrf_token %}
+             <a type="submit" href="{{MEDIA_URL}}{{name}}" download="Todays Drugs" style="text-decoration: None;">Download Todays Drug Data</a>
+        </form>
+    </div>
+{% endblock content %}
+    

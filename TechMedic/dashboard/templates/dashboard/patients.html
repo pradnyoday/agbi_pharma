@@ -1,0 +1,43 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+    <style>
+        .tableFixHead          { overflow-y: auto; max-height: 500px;}
+        .tableFixHead thead th { position: sticky; top: 0;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+        table  { border-collapse: collapse; width: 100%; }
+        th, td { padding: 2px 5px; text-align: left;}
+        th     { background:#5f788a;color: white;}
+    </style>
+
+
+<div class=" tableFixHead content-section" style="background-color:ffffff;justify-content: center;margin-left: 10%;margin-top: 0px;width: 80%;">
+    {% if data %}
+        <table class="table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Diagnosis</th>
+                <th>Prescribed Drug</th>
+                <th>Comorbidities</th>
+                <th>Past Medications</th>
+                <th>Hereditary Diseases</th>
+            </thead>  
+            {% for row in data %}
+                <tbody>
+                    <tr>
+                        <td>{{row.name}}</td>
+                        <td>{{row.age}}</td>
+                        <td>{{row.gender}}</td>
+                        <td>{{row.address}}</td>
+                        <td>{{row.city}}</td>
+                        <td>{{row.blood_group}}</td>
+                        <td>{{row.contact_info}}</td>
+                        <td><a href="{% url 'get_diag_data' row.p_id %}" value="{{row.p_id}}" style="text-decoration: none;color: #428bca;">Check Diagnosis Record</a></td>
+                    </tr>
+                </tbody> 
+            {% endfor %}
+        </table>
+    {% else %}
+        <h1>No Record Found</h1>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'dashboard/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>
+        .asteriskField {
+            display: none;
+        }
+    </style>
+    <div class="content-section" style="background-color:ffffff;justify-content: center;margin-left: 25%;margin-top: 0px;width: 50%;">
+        <div class="media">
+            <div class="media-body">
+                <h2 class="account-heading">{{ request.user.reg_name }}</h2>
+                <p class="text-secondary">{{ request.user.email }}</p>
+                <p class="text-secondary">{{ request.user.city }}</p>
+                <p class="text-secondary">{{ request.user.state }}</p>
+                <p class="text-secondary">{{ request.user.country }}</p>
+                <p class="text-secondary">{{ request.user.phone }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+    

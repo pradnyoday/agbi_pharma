@@ -1,0 +1,43 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<style>
+    .tableFixHead          { overflow-y: auto; max-height: 500px;}
+    .tableFixHead thead th { position: sticky; top: 0;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;height: 50px; }
+    table  { border-collapse: collapse; width: 10%; }
+    th, td { padding: 2px 5px; text-align: left;}
+    th     { background:#5f788a;color: white;}
+    .center {
+        margin: auto;
+        width: 80%;
+        padding: 10px;
+    }
+</style>
+<div class="center tableFixHead content-section" style="background-color:ffffff;">
+    <legend class="border-bottom mb-4">Diagnosis results for {{name}}</legend>
+    {% if data %}
+        <table class="table-striped" style="width: 100%;">
+            <thead>
+                <th>Diagnosis</th>
+                <th>Blood Pressure</th>
+                <th>Prescribed Drugs</th>
+                <th>Treatment</th>
+                <th>Past Medications</th>
+                <th>Diagnosis Data</th>
+            </thead>  
+            {% for row in data %}
+                <tbody>
+                    <tr>
+                        <td>{{row.diagnosis}}</td>
+                        <td>{{row.bp_sys}} / {{row.bp_dys}} mmHg</td>
+                        <td>{{row.prescribed_drug}}</td>
+                        <td>{{row.prescribed_treatment}}</td>
+                        <td>{{row.past_medications}}</td>
+                        <td>{{row.diagnosis_date | date:"F d, Y"}}</td>
+                    </tr>
+                </tbody> 
+            {% endfor %}
+        </table>
+    {% else %}
+        <h1>No Record Found</h1>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">	<link rel="stylesheet" type="text/css" href="{% static 'styles/main.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="{% static '/styles/main.css'%}">
+
+  <link rel="icon" type="image/svg+xml" href="{{MEDIA_URL}}/favicon.ico">
+  {% if title %}
+		<title>{{title}}</title>
+	{% else %}
+		<title>TechMedic</title>
+	{% endif %}
+</head>
+<body>
+
+	<header class="site-header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-steel fixed-top">
+		  <div class="container">
+			<a class="navbar-brand mr-4" href="{% url 'homepage' %}" style="font-size: 30px;">TechMedic</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarToggle">
+			  <div class="navbar-nav mr-auto">
+			  {%if user.is_authenticated%}
+				{% if user.role is 0%}
+				  <a class="nav-item nav-link" href="{% url 'uploadreport' %}">Upload Report</a>
+				  <a class="nav-item nav-link" href="{% url 'search' %}">Search</a>
+				  <a class="nav-item nav-link" href="{% url 'searchpatients' %}">Generate Candidates</a>
+				  <a class="nav-item nav-link" href="{% url 'analytics' %}">Analytics</a>
+				  <a class="nav-item nav-link" href="{% url 'diagnosis_tagging' %}">Diagnosis Tagging</a>
+				{% endif %}
+			  {% endif %}
+			  </div>
+			  <!-- Navbar Right Side -->
+			  <div class="navbar-nav">
+			  {% if user.is_authenticated %}
+				<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+				<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+				  {% else %}
+					  <a class="nav-item nav-link btn btn-outline-info" href="{% url 'login' %}" style="margin: 10px;width: 100px;">Login</a>
+					  <a class="nav-item nav-link btn btn-outline-info" href="{% url 'register' %}" style="margin: 10px;width: 100px;">Register</a>
+				  {% endif %}
+			  </div>
+			</div>
+		  </div>
+		</nav>
+	</header><br><br>
+
+
+	<main role="main" class="container-fluid">
+	  <div class="row">
+	    <div class="content-section" style="background-color:ffffff;justify-content: center;margin-top: 0px;width: 100%;margin-left:20px;margin-right: 20px;">
+            <legend class="border-bottom mb-4">Analytics</legend>
+            <div style="display: inline-block;width:700px">
+                {% autoescape off %}
+                    {{ fig1 }}
+                {% endautoescape %}
+            </div>
+            <div style="display: inline-block;width:700px">
+                {% autoescape off %}
+                    {{ fig2 }}
+                {% endautoescape %}
+			</div>
+			<div style="display: inline-block;width:700px">
+                {% autoescape off %}
+                    {{ fig3 }}
+                {% endautoescape %}
+            </div>
+            <div style="display: inline-block;width:700px">
+                {% autoescape off %}
+                    {{ fig6 }}
+                {% endautoescape %}
+			</div>
+			<div style="display: inline-block;width:700px">
+                {% autoescape off %}
+                    {{ fig5 }}
+                {% endautoescape %}
+            </div>
+            <div style="display: inline-block;width:700px">
+                {% autoescape off %}
+                    {{ fig4 }}
+                {% endautoescape %}
+            </div>
+        </div>
+	  </div>
+	</main>
+
+	<hr style="text-align:center; width:70%; height: 3px;border-width: 5px;margin-bottom: 110px;">
+	<div style="background-color: #fafafa; text-align: center;position: fixed;bottom: 0;width: 100%;">
+		<footer class="container py-1" >
+			<div class="row" style="text-align: center;">
+			  <div class="col-12 col-md">
+				<small class="d-block mb-3 text-muted">&copy; 2020-2021</small>
+			  </div>
+			</div>
+		  </footer>
+	</div>
+    
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
+    
