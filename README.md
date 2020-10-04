@@ -30,8 +30,11 @@ python manage.py runserver
 ```
 ### Other Software Requirements Links: 
 [Tesseract OCR](https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v5.0.0-alpha.20200328.exe)
+
 [Image Magick](https://imagemagick.org/download/binaries/ImageMagick-7.0.10-32-Q16-HDRI-x64-dll.exe)
+
 [Ghost Script](https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/gs9533w64.exe)
+
 
 ### Sample Login Credentials For Company
 email: cipla@cipla.com
