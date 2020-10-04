@@ -1312,7 +1312,7 @@ INSERT INTO `users_account` (`id`, `password`, `email`, `reg_name`, `date_joined
 (3, 'pbkdf2_sha256$216000$tzjLcHZVMXRk$A4TaNkk6Tb0ldpn3GKs6A7LV3mXedZYdlVKk/SH2Hl8=', 'shilotejmirajkar@gmail.com', 'Shilotej', '2020-09-25 09:58:08.117725', '2020-10-04 16:16:28.685600', 0, 0, 0, 1, 1, 0, 'Pune', 'Maharashtra', 'India', '9822673523'),
 (4, 'pbkdf2_sha256$216000$P0IbLJ7q6eoH$Z2VVtyE/Ii3bPDTvMB9DOhEazdjxoKo83OW7iXatg68=', 'x@gmail.com', 'Pharma', '2020-09-25 09:59:29.565305', '2020-09-30 21:15:52.447613', 0, 0, 0, 1, 1, 1, 'Pune', 'Maharashtra', 'India', '7896541232'),
 (6, 'pbkdf2_sha256$216000$mijeHsYsMT3R$UheHVMG57IqCEYjoUP3FXpyvjXo5fJxdGpx5tJ4FTR8=', 'cipla@cipla.com', 'Cipla', '2020-10-04 11:35:08.050036', '2020-10-04 12:30:39.573799', 0, 0, 0, 1, 1, 1, 'Pune', 'Maharashtra', 'India', '7418529632'),
-(8, 'pbkdf2_sha256$216000$DkYKvKzudgn2$1obDvJVMgE7EcmuBlX7uZEaVsfByxCiJVYmiMqykXv8=', 'demo.hopital@mail.com', 'Mehta Hospitals', '2020-10-04 16:25:20.332624', '2020-10-04 16:26:56.096524', 0, 0, 0, 1, 1, 0, 'Pune', 'Maharashtra', 'India', '945617412');
+(8, 'pbkdf2_sha256$216000$DkYKvKzudgn2$1obDvJVMgE7EcmuBlX7uZEaVsfByxCiJVYmiMqykXv8=', 'demo.hospital@mail.com', 'Mehta Hospitals', '2020-10-04 16:25:20.332624', '2020-10-04 16:26:56.096524', 0, 0, 0, 1, 1, 0, 'Pune', 'Maharashtra', 'India', '945617412');
 
 --
 -- Indexes for dumped tables
