@@ -1,0 +1,26 @@
+Instructions:
+
+Note: The project makes use of phpmyadmin mysql database. Please donwload xampp server from https://www.apachefriends.org/download.html. Make sure to start apache and mysql services in xampp server. 
+
+1. Create virtual environment:
+	python -m venv venv
+2. Activate virtual environment:
+	source venv/Scripts/activate  - For linux
+	venv\Scripts\activate - For Windows CMD
+3. Install dependencies:
+	pip install -r requirements.txt
+4. Create a new database in phpmyadmin and enter the database
+5. Import database pharmarket_portal.sql
+6. Make migrations inside projects folder: 
+	python manage.py makemigrations
+	python manage.py migrate
+5. python manage.py runserver
+
+Sample company login details: 
+	email: cipla@cipla.com
+	password: pass@123
+
+Sample hospital login details: 
+	email: demo.hospital@mail.com
+	password: pass@123
+
