@@ -42,6 +42,6 @@ email: cipla@cipla.com
 password: pass@123
 
 ### Sample Login Credentials For Company
-email: demo.hospital@mail.com
+email: demo.hopital@mail.com
 
 password: pass@123
