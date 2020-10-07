@@ -23,7 +23,7 @@ Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
-Create a new database in phpmyadmin and enter the database. Then database pharmarket_portal.sql
+Create a new database in phpmyadmin and enter the database. Then import pharmarket_portal.sql
 
 Make migrations inside projects folder and then run server
 
